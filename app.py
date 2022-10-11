@@ -1,41 +1,76 @@
-lista_elements=[]
+lista_elements=[
+    {
+        "id":1,
+        "nombre":"Fabuloso",
+        "Precio": 20,
+        "cantidad": 5
+    },
+    {
+        "id": 2,
+        "nombre":"Galletas",
+        "Precio": 10,
+        "cantidad": 2
+    }
+]
 
 
 def add_element():
+    #agrega los elementos
+    id = int(input("Ingresa el ID "))
+    nombre= input("Ingresa el nombre ")
+    precio= int(input("ingresa el precio "))
+    cantidad= int(input("Ingresa la cantidad "))#pedimos los valores 
+    product = {#creamos el objeto 
+        "id": id,
+        "nombre": nombre,
+        "precio": precio,
+        "cantidad": cantidad#pasamos los parametros 
+    }
+    lista_elements.append(product)#agregamos los parametros a la lista 
     pass
 def remove_element():
+    #for buscar
+    lista_elements.remove()
     pass
-def show_element():
+def find_element():
+    #for para buscar
+    producto_buscado={}
+    for producto in lista_elements:
+        if producto['nombre']==nombre:
+            producto_buscado=producto
+    producto_buscado
+
     pass
 def show_elements():
+    #for para iterar y mostrar 
+    for element in lista_elements:#iterar todos los elementos de la lista 
+        for key, value in element.items():#mostramos todos los elementos 
+            print(f"{key} -> {value}")#lo imprime 
     pass
 def edit_element():
+    #for a find para buscar
     pass
 
 
 if __name__ == '__main__':
-     message=f"Tienda de abarrotes:\n  Elige la opcion\n 1=Buscar Producto\n  2=Editar Producto\n  3=Elimina Producto\n 4=Registrar Producto\n 5=Salir"
+     message=f"Tienda de abarrotes DU:\n  Elige la opcion\n1=Agregar Producto\n2=Mostar Producto\n3=Buscar Producto\n4=Editar Producto\n5=eliminar\n6=salir\n"
      while True:
         option=int(input(message))
         #compara cada opcion y llama a la funcion correspondiente 
         if option == 1:
-            #pedir numeros al usuario 
-            ##numeros=return_values()
-            
-        elif option== 2:
-            #pedir numeros al usuario 
-            ##numeros=return_values()
-            
+            print("Inserta un producto")
+            add_element()
+        elif option==2:
+            print("Mostar todos los productos")
+            show_elements()
         elif option==3:
-            #pedir numeros al usuario
-            ##numeros=return_values() 
-           
+            print("Buscar productos")
         elif option==4:
-            #pedir numeros al usuario
-            ##numeros=return_values() 
-            
-        elif option == 5:
+            print("Editar producto")
+        elif option==5:
+            print("Eliminar producto")
+        elif option == 6:
             print("BYE")
             break
         else:
-            print ("Opcion incorrecta")
+            print("OPCION INCORRECTA ")
