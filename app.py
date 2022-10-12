@@ -30,7 +30,7 @@ def add_element():
     lista_elements.append(product)#agregamos los parametros a la lista 
     pass
 
-def remove_element():
+def remove_element():#elimina 
     #for buscar
     id=int(input("Ingresa el id a ELIMINAR "))
     found = find_element(id)
@@ -41,7 +41,7 @@ def remove_element():
         print("Elemento elminado")
     pass
 
-def find_element(id):
+def find_element(id):#busca 
     #for para buscar
     found =()
     for element in lista_elements:
@@ -51,13 +51,13 @@ def find_element(id):
             print("NO SE ENCUENTRA EL PRODUCTO")
     return found
 
-def show_elements():
+def show_elements():#muestra 
     #for para iterar y mostrar 
     for element in lista_elements:#iterar todos los elementos de la lista 
         for key, value in element.items():#mostramos todos los elementos 
             print(f"{key} -> {value}")#lo imprime 
 
-def edit_element():
+def edit_element():#edita 
     #for a find para buscar
     #editar
     
