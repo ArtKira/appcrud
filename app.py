@@ -1,3 +1,5 @@
+
+
 lista_elements=[
     {
         "id":1,
@@ -28,28 +30,39 @@ def add_element():
     }
     lista_elements.append(product)#agregamos los parametros a la lista 
     pass
+
 def remove_element():
     #for buscar
-    lista_elements.remove()
+    id=int(input("Ingresa el id a editar "))
+    found = find_element(id)
+    print(found)
+    aceptar=input("Estas seguro de eliminar S/N")
+    if aceptar == "s":
+        lista_elements.remove(found)
+        print("Elemento elminado")
     pass
-def find_element():
-    #for para buscar
-    producto_buscado={}
-    for producto in lista_elements:
-        if producto['nombre']==nombre:
-            producto_buscado=producto
-    producto_buscado
 
-    pass
+def find_element(id):
+    #for para buscar
+    found =()
+    for element in lista_elements:
+        if element['id'] == id:
+            found=element
+    return found
+
 def show_elements():
     #for para iterar y mostrar 
     for element in lista_elements:#iterar todos los elementos de la lista 
         for key, value in element.items():#mostramos todos los elementos 
             print(f"{key} -> {value}")#lo imprime 
-    pass
+
 def edit_element():
     #for a find para buscar
-    pass
+    #editar
+    id=int(input("Ingresa el id a editar "))
+    found = find_element(id)
+    print(found)
+    
 
 
 if __name__ == '__main__':
@@ -65,10 +78,16 @@ if __name__ == '__main__':
             show_elements()
         elif option==3:
             print("Buscar productos")
+            id =int(input("Agrega el id a buscar "))
+            found = find_element(id)
+            print(found)
+            
         elif option==4:
             print("Editar producto")
+            edit_element()
         elif option==5:
             print("Eliminar producto")
+            remove_element()
         elif option == 6:
             print("BYE")
             break
