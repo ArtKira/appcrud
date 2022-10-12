@@ -64,7 +64,17 @@ def edit_element():#edita
     id=int(input("Ingresa el id a editar "))
     found = find_element(id)#busca los elementos 
     print(found)#lo imprime 
-    nombre= input("Ingresa el nuevo nombre ")
+    index=lista_elements.index(found)
+    nombre=input("Actualizar nombre , deja en blanco para conservar ")
+    precio= int(input("ingresa el nuevo precio "))
+    cantidad= int(input("Ingresa la cantidad nueva "))
+    if nombre != '':
+        lista_elements[index]['nombre'] = nombre
+    if precio != '':
+        lista_elements[index]['precio'] = precio
+    if cantidad != '':
+        lista_elements[index]['cantidad'] = cantidad
+    '''nombre= input("Ingresa el nuevo nombre ")
     precio= int(input("ingresa el nuevo precio "))
     cantidad= int(input("Ingresa la cantidad nueva "))#pedimos los valores
     product = {#creamos el objeto 
@@ -74,7 +84,7 @@ def edit_element():#edita
         "cantidad": cantidad#pasamos los parametros 
     }
     lista_elements.remove(found)#elimina lo que contiene 
-    lista_elements.append(product)#agrega los nuevos elemntos 
+    lista_elements.append(product)#agrega los nuevos elemntos'''
 
     
 
@@ -107,3 +117,4 @@ if __name__ == '__main__':
             break
         else:
             print("OPCION INCORRECTA ")
+            
