@@ -33,7 +33,7 @@ def add_element():
 
 def remove_element():
     #for buscar
-    id=int(input("Ingresa el id a editar "))
+    id=int(input("Ingresa el id a ELIMINAR "))
     found = find_element(id)
     print(found)
     aceptar=input("Estas seguro de eliminar S/N")
@@ -48,6 +48,8 @@ def find_element(id):
     for element in lista_elements:
         if element['id'] == id:
             found=element
+        else:
+            print("NO SE ENCUENTRA EL PRODUCTO")
     return found
 
 def show_elements():
