@@ -34,22 +34,22 @@ def remove_element():#elimina
     #for buscar
     id=int(input("Ingresa el id a ELIMINAR "))
     found = find_element(id)
-    print(found)
-    aceptar=input("Estas seguro de eliminar S/N")
-    if aceptar == "s":
-        lista_elements.remove(found)
-        print("Elemento elminado")
-    pass
+    if found:
+        print(found)
+        aceptar=input("Estas seguro de eliminar S/N")
+        if aceptar == "s":
+            lista_elements.remove(found)
+            print("Elemento elminado")
+    else:
+        print(f"El elemento id {id} no existe")
 
 def find_element(id):#busca 
     #for para buscar
-    found =()
     for element in lista_elements:
         if element['id'] == id:
-            found=element
+            return element
         else:
             print("NO SE ENCUENTRA EL PRODUCTO")
-    return found
 
 def show_elements():#muestra 
     #for para iterar y mostrar 
@@ -60,20 +60,22 @@ def show_elements():#muestra
 def edit_element():#edita 
     #for a find para buscar
     #editar
-    
     id=int(input("Ingresa el id a editar "))
-    found = find_element(id)#busca los elementos 
-    print(found)#lo imprime 
-    index=lista_elements.index(found)
-    nombre=input("Actualizar nombre , deja en blanco para conservar ")
-    precio= int(input("ingresa el nuevo precio "))
-    cantidad= int(input("Ingresa la cantidad nueva "))
-    if nombre != '':
-        lista_elements[index]['nombre'] = nombre
-    if precio != '':
-        lista_elements[index]['precio'] = precio
-    if cantidad != '':
-        lista_elements[index]['cantidad'] = cantidad
+    found = find_element(id)#busca los elementos
+    if found: 
+        print(found)#lo imprime 
+        index=lista_elements.index(found)
+        nombre=input("Actualizar nombre , deja en blanco para conservar ")
+        precio= int(input("ingresa el nuevo precio "))
+        cantidad= int(input("Ingresa la cantidad nueva "))
+        if nombre != '':
+            lista_elements[index]['nombre'] = nombre
+        if precio != '':
+            lista_elements[index]['precio'] = precio
+        if cantidad != '':
+            lista_elements[index]['cantidad'] = cantidad
+    else:
+        print (f"El id que ingresaste {id} no existe ")
     '''nombre= input("Ingresa el nuevo nombre ")
     precio= int(input("ingresa el nuevo precio "))
     cantidad= int(input("Ingresa la cantidad nueva "))#pedimos los valores
@@ -104,7 +106,8 @@ if __name__ == '__main__':
             print("Buscar productos")
             id =int(input("Agrega el id a buscar "))
             found = find_element(id)
-            print(found)
+            if found:
+                print(found)
             
         elif option==4:
             print("Editar producto")
