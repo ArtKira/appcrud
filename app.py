@@ -1,5 +1,4 @@
 
-
 lista_elements=[
     {
         "id":1,
@@ -61,9 +60,22 @@ def show_elements():
 def edit_element():
     #for a find para buscar
     #editar
+    
     id=int(input("Ingresa el id a editar "))
-    found = find_element(id)
-    print(found)
+    found = find_element(id)#busca los elementos 
+    print(found)#lo imprime 
+    nombre= input("Ingresa el nuevo nombre ")
+    precio= int(input("ingresa el nuevo precio "))
+    cantidad= int(input("Ingresa la cantidad nueva "))#pedimos los valores
+    product = {#creamos el objeto 
+        "id": id,
+        "nombre": nombre,
+        "precio": precio,
+        "cantidad": cantidad#pasamos los parametros 
+    }
+    lista_elements.remove(found)#elimina lo que contiene 
+    lista_elements.append(product)#agrega los nuevos elemntos 
+
     
 
 
