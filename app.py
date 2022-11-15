@@ -1,19 +1,9 @@
 
-lista_elements=[
-    {
-        "id":1,
-        "nombre":"Fabuloso",
-        "Precio": 20,
-        "cantidad": 5
-    },
-    {
-        "id": 2,
-        "nombre":"Galletas",
-        "Precio": 10,
-        "cantidad": 2
-    }
-]
 
+
+import json #importamos json 
+with open('elementos.json', 'r') as file:#mandamos a traer el elemento 
+    lista_elements=json.load(file)#pasamos los parametros a la lista_elements
 
 def add_element():
     #agrega los elementos
@@ -28,12 +18,14 @@ def add_element():
         "cantidad": cantidad#pasamos los parametros 
     }
     lista_elements.append(product)#agregamos los parametros a la lista 
+    guardar_list()
     pass
 
 def remove_element():#elimina 
     #for buscar
     id=int(input("Ingresa el id a ELIMINAR "))
     found = find_element(id)
+    guardar_list()
     if found:
         print(found)
         aceptar=input("Estas seguro de eliminar S/N")
@@ -88,7 +80,9 @@ def edit_element():#edita
     lista_elements.remove(found)#elimina lo que contiene 
     lista_elements.append(product)#agrega los nuevos elemntos'''
 
-    
+def guardar_list():#guardar lista 
+    with open('elementos.json', 'w') as file:#en modo escribir 
+        json.dump(lista_elements, file)#agrega los archivos
 
 
 if __name__ == '__main__':
@@ -99,6 +93,7 @@ if __name__ == '__main__':
         if option == 1:
             print("Inserta un producto")
             add_element()
+            guardar_list()
         elif option==2:
             print("Mostar todos los productos")
             show_elements()
@@ -112,9 +107,11 @@ if __name__ == '__main__':
         elif option==4:
             print("Editar producto")
             edit_element()
+            guardar_list()
         elif option==5:
             print("Eliminar producto")
             remove_element()
+            guardar_list()
         elif option == 6:
             print("BYE")
             break
